@@ -10,27 +10,33 @@
     <link rel="stylesheet" href={{ url_for("static", filename="css/animate.min.css") }}>
     <link rel="stylesheet" href={{ url_for("static", filename="css/style.css") }}>
     <link rel="stylesheet" href={{ url_for("static", filename="font-awesome/css/font-awesome.min.css") }}>
+    <link href="https://allfont.ru/allfont.css?fonts=droid-serif" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon_var2.ico') }}">
   </head>
   <body>
 <!-- ____________________________ START ____________________________ -->
+<div class="container-fluid">
 <main>
   <header>
-    <figure>
-      <img src={{ url_for('static', filename='/images/header.png') }} alt="">
-    </figure>
+
+    <div class="logo-wrap">
+      <h3>СДЕЛАНО В УЗБЕКИСТАНЕ</h1>
+    </div>
+
+    <nav>
+      {% include 'navigation.html' %}
+    </nav>
+    <hr>
   </header>
 
-  <nav>
-    {% include 'navigation.html' %}
-  </nav>
-  
-  h
+{% block content %}
+{% endblock %}
 
   <footer>
     {% include 'footer.html' %}
   </footer>
 </main>
+</div> <!-- /container-wrap -->
 <!-- ____________________________ FINISH ____________________________ -->   
 <!-- ____________________________  JavaScript ____________________________ -->
     <script src= {{ url_for("static", filename="js/jquery-3.4.1.slim.min.js") }}></script>

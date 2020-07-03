@@ -1,10 +1,84 @@
-figure{
-    display: block;
+body, main, .container-fluid{
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+}
+header{
+    width: 100%;
+    min-height: 100vh;
+    background: #DFF9F6;
+}
+
+h3{
+    position: relative;
+    display: inline-block;
+    font-family: 'Droid Serif', arial;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+    left:15%;
+    top: 50px;
+}
+
+.logo-wrap{
     width: 100%;
     min-height: 80vh;
-    background: beige;
-    text-align: center;
+    background-image: url("../images/header.png");
+    background-repeat: no-repeat;
+    background-clip: padding-box;
+    background-size: contain;
 }
-img{
-    object-fit: contain;
+nav{
+    position: relative;
+    height: 20vh;
+    width: 100%;
+}
+
+.wrapper-nav{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    transform: translate(0%, 50%)
+}
+
+.nav-item > li{
+    list-style-type: none;
+    margin: 2%;
+}
+.nav-item > li > a{
+    color: black;
+    text-decoration: none;
+    text-decoration-style: none;
+    font-size: 17px;
+    line-height: 71px;
+}
+.nav-item > li > a:hover{
+    color: #2BD800;
+}
+hr{
+    margin: 0;
+    padding: 0;
+    border-top: 3px solid black;
+}
+
+.section-block-1{
+    min-height: 40vh;
+    width: 100%;
+    background-image: url("../images/emblem.png");
+    background-position-y: center;
+    background-position-x: 25%;
+    background-repeat: no-repeat;
+    background-size: contain;padding: 10% 0;
+}
+
+.section-block-1 > pre{
+    float: right;
+    margin-right: 15%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #333333;
 }

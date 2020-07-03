@@ -18,3 +18,4 @@ config.py
 migrations
 app.db
 *.pyc
+*.vscode

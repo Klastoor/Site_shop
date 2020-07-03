@@ -6,6 +6,6 @@ from flask_login import login_user, current_user, login_required, logout_user
 from werkzeug.urls import url_parse
 
 @app.route("/")
-@app.route("/base.html")
-def base():
-    return render_template("base.html")
+@app.route("/home")
+def home():
+    return render_template("home.html")
