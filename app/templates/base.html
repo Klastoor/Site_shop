@@ -10,18 +10,27 @@
     <link rel="stylesheet" href={{ url_for("static", filename="css/animate.min.css") }}>
     <link rel="stylesheet" href={{ url_for("static", filename="css/style.css") }}>
     <link rel="stylesheet" href={{ url_for("static", filename="font-awesome/css/font-awesome.min.css") }}>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon_var2.ico') }}">
   </head>
   <body>
 <!-- ____________________________ START ____________________________ -->
+<main>
+  <header>
+    <figure>
+      <img src={{ url_for('static', filename='/images/header.png') }} alt="">
+    </figure>
+  </header>
 
+  <nav>
+    {% include 'navigation.html' %}
+  </nav>
+  
+  h
 
-
-
-<h1>hello</h1>
-
-
-
-
+  <footer>
+    {% include 'footer.html' %}
+  </footer>
+</main>
 <!-- ____________________________ FINISH ____________________________ -->   
 <!-- ____________________________  JavaScript ____________________________ -->
     <script src= {{ url_for("static", filename="js/jquery-3.4.1.slim.min.js") }}></script>

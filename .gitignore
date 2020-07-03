@@ -14,3 +14,7 @@ lib
 lib64
 __pycache__
 venv
+config.py
+migrations
+app.db
+*.pyc

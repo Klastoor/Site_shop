@@ -1,0 +1,10 @@
+figure{
+    display: block;
+    width: 100%;
+    min-height: 80vh;
+    background: beige;
+    text-align: center;
+}
+img{
+    object-fit: contain;
+}
