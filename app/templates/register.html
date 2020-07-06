@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="main_wrap">
+  <div class="main">
+    
+    <section class="left_area">
+
+          <h3>Уже есть аккаунт?</h3>
+          <br>
+          <p>Так войди в него!</p>
+          <button class="btn_1 w-50 align-self-center" href="/login" id="btn_login">Войти</a>
+
+    </section><!-- /.left-area -->
+
+    <section class="right_area_2">
+        <form class="container" action="" method="POST">
+            
+          <h2>Регистрация</h2>
+          {{ form.hidden_tag() }}
+
+          {% for field in form if field.name not in ['csrf_token', 'hidden_tag', 'btn'] %}
+          
+            <span class="flex"> {{ field.label() }} {{ field(class="item") }} </span>
+
+                {% for error in field.errors %}
+                <span class="error"> {{ error }} </span>
+                {% endfor %}
+
+            {% endfor %}
+
+            {{ form.btn(class="btn_2 w-50 mb-2 align-self-center") }}
+
+        </form><!-- /form .container -->
+    </section><!-- /.right-area -->
+
+    </div><!-- /.main -->
+</div><!-- /.main-wrap -->
+
+
+{% endblock %}

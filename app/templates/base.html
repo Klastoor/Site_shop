@@ -19,14 +19,30 @@
 <main>
   <header>
 
-    <div class="logo-wrap">
-      <h3>СДЕЛАНО В УЗБЕКИСТАНЕ</h1>
-    </div>
-
     <nav>
       {% include 'navigation.html' %}
+      <div class="account">
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('user', id=current_user.id) }}">{{ current_user.name }} {{ current_user.surname }}</a>
+          <a href="{{ url_for('logout') }}">Выйти</a>
+        {% else %}
+          <a href="{{ url_for('login') }}">Войти</a>
+        {% endif %}
+      </div>
     </nav>
+    
   </header>
+
+    <aside class="alert" role="alert">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+        <h1 style="text-align: center; color:rgb(241, 224, 147);"> {{ message }} </h1>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    </aside>
+
 
 {% block content %}
 {% endblock %}
