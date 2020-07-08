@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 from random import choice, sample
 
 def check(checklist:list)->list:
@@ -27,7 +29,11 @@ def computation(loop:str, round:str, string:str) -> list:
 password = computation("20", "20", "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789!#(=%)")
 password = password[0]['password']
 
-info = f"""from os import path
+info = f"""
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+from os import path
 
 URI = path.abspath(path.dirname(__file__))
 
@@ -39,6 +45,8 @@ SECRET_KEY = '{password}'
 TESTING = True
 DEBUG = True
 FLASK_ENV = 'development'
+ADMIN_EMAIL = 'email@dmin.net'
+FLASK_ADMIN_SWATCH = 'Lumen'
 """
 
 with open("config.py", "w", encoding='UTF-8') as f:

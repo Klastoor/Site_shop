@@ -34,6 +34,24 @@ nav{
     width: 100%;
 }
 
+.account{
+    position: absolute;
+    font-weight: 800;
+    top: 7%;
+    right: 15%;
+}
+.account > a{
+    color: black;
+    text-decoration: none;
+    text-decoration-style: none;
+    font-size: 20px;
+    line-height: 90px;
+}
+
+.account > a:hover{
+    color: #2BD800;
+}
+
 .wrapper-nav{
     position: absolute;
     width: 100%;

@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from app import app, db, lm
 from flask import redirect, render_template, url_for, request, flash
-from app import app, db
-from app.forms import RegisterForm, LoginForm
-from app.models import User
+from app.forms import RegisterForm, LoginForm, ProductForm
+from app.models import Users, Products
+from datetime import datetime
 from flask_login import login_user, current_user, login_required, logout_user
 from werkzeug.urls import url_parse
 
@@ -19,7 +20,7 @@ def register():
         return redirect(url_for("home"))
     form = RegisterForm()
     if form.validate_on_submit():
-        new_user = User(name=form.name.data, surname=form.surname.data, second_name=form.second_name.data, gender=form.gender.data, email=form.email.data)
+        new_user = Users(name=form.name.data, surname=form.surname.data, second_name=form.second_name.data, gender=form.gender.data, email=form.email.data)
         new_user.set_password(form.password_1.data)
         db.session.add(new_user)
         db.session.commit()
@@ -33,7 +34,7 @@ def login():
         return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
-        user_now =  User.query.filter_by(email = form.email.data).first()
+        user_now =  Users.query.filter_by(email = form.email.data).first()
 
         if user_now and user_now is not None:
             if user_now.check_password(form.password.data):
@@ -45,13 +46,13 @@ def login():
             else:
                 flash("Неверно  введен пароль!")       
         else:
-            flash("Аккаунт с таким логином - нет!")
+            flash("Аккаунта с таким эмейлом - нет!")
     return render_template("login.html", form=form)
 
 @app.route('/user/<id>')
 @login_required
 def user(id):
-    user = User.query.filter_by(id=int(id)).first_or_404()
+    user = Users.query.filter_by(id=int(id)).first_or_404()
     text = f"Покупатель {user.name} {user.surname} {user.second_name} числится под номером {user.id}"
     return render_template('user.html', posts=text)
 
@@ -60,3 +61,4 @@ def user(id):
 def logout():
     logout_user()
     return redirect("home")
+

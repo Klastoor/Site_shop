@@ -1,12 +1,13 @@
 #!usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from app import app
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, StringField, PasswordField, validators, SubmitField, TextAreaField, SelectField
+from wtforms.fields import BooleanField, IntegerField, StringField, PasswordField, SubmitField, TextAreaField, SelectField
+from wtforms import validators
 from wtforms.fields.html5 import EmailField
-from wtforms.validators import DataRequired, InputRequired, Email, Length, ValidationError, EqualTo
-from app.models import User
+from wtforms.validators import DataRequired, InputRequired, Email, Length, ValidationError, EqualTo, NumberRange
+from app.models import Users
+from flask_ckeditor import CKEditorField
 
 
 ################# Registr
@@ -21,7 +22,7 @@ class RegisterForm(FlaskForm):
     btn = SubmitField('Подтвердить')
 
     def validate_email(self, email):
-        user = User.query.filter_by(email=email.data).first()
+        user = Users.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Указанный почт.адрес неподходит, тк уже зарегистрирован!')
 
@@ -31,3 +32,9 @@ class LoginForm(FlaskForm):
     password = PasswordField('Пароль: ', validators=[InputRequired()])
     remember = BooleanField('Запомнить меня: ', default='checked')
     btn = SubmitField('Войти')
+
+class ProductForm(FlaskForm):
+    name = StringField('Название товара', validators=[DataRequired(message="Наименование обязатльно!"), Length(min=3, message="Название должно состоять минимум из трех символов!")])
+    descript = CKEditorField('Описание товара', validators=[DataRequired(message="Необходимо предоставить хотя бы короткое описание товара!"), Length(min=12, message="Еще чутка больше слов и сойдет!")])
+    price = IntegerField("Цену необходимо указать в рублях!", validators=[DataRequired('Необходимо указать цену за один товар!'), NumberRange(min=999, message="Цена за единицу товара, не может быть меньше 999 руб!")])
+    amount = IntegerField('Количество товара на складе', validators=[InputRequired(), NumberRange(min=0, max=500, message="Количество товаров должно варьироваться от 0 до 500 штук!")])
