@@ -8,9 +8,11 @@ from flask_login import LoginManager
 from flask_ckeditor import CKEditor
 from logging.handlers import RotatingFileHandler
 import os, logging
+from flask_ngrok import run_with_ngrok
 
 app = Flask(__name__)
 app.config.from_pyfile('../config.py')
+run_with_ngrok(app)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 lm = LoginManager(app)
