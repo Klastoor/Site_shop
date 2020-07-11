@@ -46,7 +46,7 @@ def login():
             else:
                 flash("Неверно  введен пароль!")       
         else:
-            flash("Аккаунта с таким эмейлом - нет!")
+            flash("Указанный эмейл-адресс не зарегистрирован!")
     return render_template("login.html", form=form)
 
 @app.route('/user/<id>')

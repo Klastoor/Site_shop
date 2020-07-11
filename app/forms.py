@@ -12,12 +12,12 @@ from flask_ckeditor import CKEditorField
 
 ################# Registr
 class RegisterForm(FlaskForm):
-    name = StringField('Имя: ', validators=[DataRequired()])
-    surname = StringField('Фамилия: ', validators=[DataRequired()])
-    second_name = StringField('Отчество (не обязательно): ')
+    name = StringField('Имя: ', validators=[DataRequired()], render_kw={'placeholder': 'Иван'})
+    surname = StringField('Фамилия: ', validators=[DataRequired()], render_kw={'placeholder': 'Иванов'})
+    second_name = StringField(label=('Отчество'), render_kw={'placeholder': 'Не обязательное поле! '})
     gender = SelectField('Вы: ',validators=[DataRequired()] , choices=[('men', 'мужчина'), ('women', 'женщина')])
-    email = EmailField('Ваша почта: ', validators=[DataRequired(), Email(message='Указанная почта уже была использована!'), Length(max=50)])
-    password_1 = PasswordField('Новый пароль: ',  validators=[DataRequired(), Length(min=6, max=20, message='Пароль должен состоять от 6 до 20 символов!')])
+    email = EmailField('Ваша почта: ', validators=[DataRequired(), Email(message='Указанная почта уже была использована!'), Length(max=50)], render_kw={'placeholder': 'IvanovIvan@gmail.com'})
+    password_1 = PasswordField('Новый пароль: ',  validators=[DataRequired(), Length(min=6, max=20, message='Пароль должен состоять от 6 до 20 символов!')], render_kw={'placeholder': 'от 6 до 20 символов'})
     password_2 = PasswordField('Повтор пароля: ', validators=[DataRequired(), EqualTo('password_1', message='Пароли не совпадают!')]) 
     btn = SubmitField('Подтвердить')
 

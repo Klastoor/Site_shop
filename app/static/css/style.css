@@ -4,11 +4,16 @@ body, main, .container-fluid{
     font-family: 'Times New Roman', Times, serif;
     font-weight: 400;
 }
+
+/* =================================== ШАПКА САЙТА =========================================== */
+
+/* Верхний блок  где картинка + навигация*/
 header{
     width: 100%;
     background: #DFF9F6;
 }
 
+/* текст над картинкой */
 .logo-wrap > h3{
     position: relative;
     display: inline-block;
@@ -20,6 +25,7 @@ header{
     top: 35px;
 }
 
+/* Блок с картинкой */
 .logo-wrap{
     width: 100%;
     min-height: 80vh;
@@ -28,18 +34,23 @@ header{
     background-repeat: no-repeat;
     background-clip: padding-box;
 }
+
+/* Вся навигационная панель */
 nav{
     position: relative;
     height: 20vh;
     width: 100%;
 }
 
+/* Блок с кнопками действий с аккаунтом */
 .account{
     position: absolute;
     font-weight: 800;
     top: 7%;
     right: 15%;
 }
+
+/* Непосредственно сами кнопки */
 .account > a{
     color: black;
     text-decoration: none;
@@ -48,10 +59,12 @@ nav{
     line-height: 90px;
 }
 
+/* Кнопки в момент когда на них наводят мышью */
 .account > a:hover{
     color: #2BD800;
 }
 
+/* Блок с основными навигационнами кнопками по сайту */
 .wrapper-nav{
     position: absolute;
     width: 100%;
@@ -65,6 +78,8 @@ nav{
     list-style-type: none;
     margin: 2%;
 }
+
+/* Непосредственно сами кнопки */
 .nav-item > li > a{
     color: black;
     text-decoration: none;
@@ -72,15 +87,23 @@ nav{
     font-size: 17px;
     line-height: 71px;
 }
+
+/* Кнопки в момент когда на них наводят мышью */
 .nav-item > li > a:hover{
     color: #2BD800;
 }
+
+/* =========================================================================================== */
+
+/* разделительная полоса между секциями */
 hr{
     margin: 0;
     padding-bottom: 36px;
     border-top: 3px solid black;
 }
 
+/* =================================== ГЛАВНАЯ СТРАНИЦА ====================================== */
+/* Первый блок картинка + текст */
 .section-block-1{
     width: 100%;
     min-height: 450px;
@@ -90,6 +113,7 @@ hr{
     justify-content: center;
 }
 
+/* текст первого блока */
 .section-block-1 > .text{
     margin: auto 0;
     line-height: 1.5rem;
@@ -100,19 +124,24 @@ hr{
     color: #333333;
 }
 
+/* Оглавление второго блока */
 .section-block-2 > h4{
     text-align: center;
 }
 
+/* Блог картинки второго блока */
 .section-block-2 > .figure{
     margin: 36px auto 36px 165px;
 
 }
+
+/* Настройки картинки второго блока */
 .section-block-2 > .figure > img{
     width: 403px;
     height: 403px;
 }
 
+/* Кнопка под картинкой второго блока */
 .section-block-2 > .button > a{
     margin-left: 255px;
     background: #0ec03a;
@@ -125,10 +154,15 @@ hr{
     text-decoration: none;
     border-radius: 10px;
 }
+
+/* Кнопка под картинкой второго блока в момент наведения мышью*/
 .section-block-2 > .button > a:hover{
     background: #4E59F2;
 }
+/* ========================================================================================== */
 
+/* ================================== НИЖНЯЯ ЧАСТЬ САЙТА ===================================== */
+/* Весь блок */
 .footer{
     width: 100%;
     height: 300px;
@@ -144,6 +178,7 @@ hr{
     padding-top: 45px;
 }
 
+/* Левая часть блока */
 .footer > .text-1{
     color: black;
     text-align: center;
@@ -151,19 +186,25 @@ hr{
     margin-right: 40px;
 }
 
+/* Правая часть блока */
 .footer > .text-2{
     color: #ffffff;
     text-align: center;
     margin-left: 40px;
 }
+/* =========================================================================================== */
 
-/* __________________________ALLL STYLE_____________________________________ */
+
+/* ============================ СТРАНИЦА "ВХОДА" И "РЕГИСТРАЦИИ" ============================= */
+/* Обертка всего блока */
 .main_wrap{
     min-height: 80vh;
     width: 100%;
     background: rgb(229,240,244);
     background: linear-gradient(90deg, rgb(198, 211, 216) 0%, rgb(164, 193, 199) 25%, rgba(203,245,255,1) 50%, rgb(134, 176, 185) 75%, rgb(186, 201, 204) 100%);
 }
+
+/*  Сам блок  */
 .main{
     min-height: 70vh;
     width: 100%;
@@ -174,6 +215,7 @@ hr{
     font-size: larger;
 }
 
+/* Общая левая часть блока */
 .left_area{
     position: absolute;
     background: #495553da;
@@ -189,6 +231,7 @@ hr{
     z-index: 0;
 }
 
+/* Правая часть блока "ВХОД" */
 .right_area{
     position: absolute;
     background: #49555377;
@@ -202,6 +245,18 @@ hr{
     z-index: 100;
 }
 
+/* Форма для ввода данных правой части блока "ВХОД" */
+.right_area > form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    text-align: center;
+    z-index: 100;
+
+}
+
+/* Правая часть блока "РЕГИСТРАЦИЯ" */
 .right_area_2{
     position: absolute;
     background: #49555377;
@@ -215,16 +270,7 @@ hr{
     z-index: 100;
 }
 
-.right_area > form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    text-align: center;
-    z-index: 100;
-
-}
-
+/* Форма для ввода данных правой части блока "РЕГИСТРАЦИЯ" */
 .right_area_2 > form{
     display: flex;
     flex-direction: column;
@@ -234,11 +280,17 @@ hr{
     z-index: 100;
 }
 
+/* Общий стиль полей для ввода данных */
 .flex{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Текст ошибок появляющийся под полем ввода */
+.error{
+    color: #ff0000;
 }
 
 aside{
